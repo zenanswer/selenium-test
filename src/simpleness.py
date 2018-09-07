@@ -6,6 +6,7 @@ __copyright__   = "Copyright 2018, CIeNET Tech."
 
 
 import traceback
+import time
 
 import setupdriver
 
@@ -33,10 +34,12 @@ if __name__ == '__main__':
         )
         driver.find_element_by_class_name("index-logo-srcnew")
         driver.get_screenshot_as_file("baidu_pycon.png")
-        result = driver.find_element_by_css_selector("div#1")
-        print(result)
+
+        results = driver.find_elements_by_css_selector("a.c-showurl")
+        results[2].click()
     except Exception as exp:
         print(exp)
         traceback.print_exc()
     finally:
-        driver.close()
+        print()
+        #driver.close()
